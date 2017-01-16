@@ -1,0 +1,46 @@
+.main-navigation {
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 50px;
+  -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.15);
+  text-align: right;
+
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:0 10px;
+
+    .logo {
+      position: absolute;
+      left:10px;
+      top:0;
+    }
+
+    nav {
+      ul {
+        left:0;
+        width: 100%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+
+        li {
+          display: inline-block;
+          padding:0 3%;
+          a {
+            &.active {
+              color:#4aa3df;
+            }
+          }
+          &:first-child {
+            padding-left:0;
+          }
+        }
+      }
+    }
+  }
+}
