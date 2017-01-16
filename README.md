@@ -1,7 +1,7 @@
 # REDUX JUMPSTART #
-A React/Redux playground & springboard for your project.
+A React/Redux environment, playground & springboard for your project.
 
-Get a redux playground/project up and running in < 5 mins. Quickly create components, reducers, write tests, lint and apply style sharpish. Happy coding :)
+Get a react/redux playground/project up and running in < 5 mins. Quickly create components, reducers, write tests, lint and apply style sharpish. Happy coding :)
 
 With:
   - React
@@ -11,6 +11,7 @@ With:
   - Webpack
   - Eslint (air bnb standard)
   - SASS
+  - Thunk
 
 Setup:
   1) `$ git clone ...`
