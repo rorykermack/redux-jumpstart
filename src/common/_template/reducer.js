@@ -1,4 +1,4 @@
-/* Home Reducer */
+/* Template Reducer */
 import * as actions from './actions';
 import {List, Record} from 'immutable';
 
