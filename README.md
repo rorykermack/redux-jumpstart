@@ -1,3 +1,4 @@
+![alt text](https://raw.githubusercontent.com/rorykermack/redux-jumpstart/master/readme-header.jpg  "Logo Title Text 1")
 # REDUX JUMPSTART #
 ### A React/Redux environment, playground & springboard for your project. ###
 
