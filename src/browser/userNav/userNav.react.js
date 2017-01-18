@@ -22,7 +22,7 @@ export default class UserNav extends Component {
       <nav className="user-nav">
         { loggedIn && <p>Hey {userFirstName}!</p> }
         <ul>
-          <li><Link className="grey" to={`/me/profile`}>Profile</Link></li>
+          <li><Link className="grey" to={`/me`}>Profile</Link></li>
           <li><Link className="grey" to={`/me/settings`}>Settings</Link></li>
           <li><LogoutBtn {...this.props}/></li>
         </ul>

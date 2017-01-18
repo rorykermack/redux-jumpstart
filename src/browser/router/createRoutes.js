@@ -29,7 +29,7 @@ export default function createRoutes(getState) {
 			<IndexRoute component={Home} />
       <Route path="about" component={About}/>
       <Route path="me" component={Auth}>
-        <Route path="profile" component={UserProfile} />
+        <IndexRoute component={UserProfile} />
         <Route path="settings" component={UserSettings} />
       </Route>
       <Route path="todos" component={ToDos}/>

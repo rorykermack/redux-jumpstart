@@ -40,7 +40,7 @@ export default class Navigation extends Component {
               <li><Link to={`/`} className={this.isActiveRoute('')}>Home</Link></li>
               <li><Link to={`/about`} className={this.isActiveRoute('about')}>About</Link></li>
               <li><Link to={`/todos`} className={this.isActiveRoute('todos')}>To Dos</Link></li>
-              <li><Link to={`/me/profile`} className={this.isActiveRoute('me/profile')}>{loginText}</Link></li>
+              <li><Link to={`/me`} className={this.isActiveRoute('me/profile')}>{loginText}</Link></li>
             </ul>
           </nav>
         </div>

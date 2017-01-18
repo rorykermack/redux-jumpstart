@@ -22,9 +22,12 @@ const firebaseApp = Firebase.initializeApp(FirebaseConfig);
 class App extends Component {
 
   componentDidMount() {
+    const {actions} = this.props;
     Firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
+        actions.auth_login_complete(user);
+
         console.log('logged in');
       } else {
         // No user is signed in.

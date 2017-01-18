@@ -49,8 +49,8 @@ export default class LoginForm extends Component {
           <h1>Login</h1>
           <p>Firebase based auth system </p>
           <Form>
-          <input type="text" placeholder="username" value={username} onChange={this.onUsernameUpdate}/>
-          <input type="password" placeholder="password" value={password} onChange={this.onPasswordUpdate}/>
+          <input className="block" type="text" placeholder="username" value={username} onChange={this.onUsernameUpdate}/>
+          <input className="block" type="password" placeholder="password" value={password} onChange={this.onPasswordUpdate}/>
           <button onClick={this.login}>Login</button>
           </Form>
         </div>
