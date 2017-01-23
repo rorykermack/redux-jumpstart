@@ -1,4 +1,4 @@
-@import './coreCss/reset';
+@import './coreCss/reactiveSASS';
 
 * {
   box-sizing: border-box;
@@ -97,4 +97,14 @@ a {
 
 .page {
   padding-top:50px;
+}
+
+/* UI Helper Classes */
+.block {
+  display: block;
+  margin: 15px 0;
+
+  &.no-margin {
+    margin: 0;
+  }
 }
