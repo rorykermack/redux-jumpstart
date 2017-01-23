@@ -17,8 +17,14 @@ export default class UserProfile extends Component {
   render() {
     console.log(this.props);
     const {
-      auth
+      auth,
+      user: {
+        about,
+        profilePhoto
+      }
     } = this.props;
+    console.log(profilePhoto)
+    const profilePhotoURL = (profilePhoto && profilePhoto.url) ? profilePhoto.url : "https://wallpaperscraft.com/image/cat_face_profile_black_background_66441_602x339.jpg";
     return(
       <section className="my-profile-page">
         <div className="container">
@@ -30,9 +36,9 @@ export default class UserProfile extends Component {
           }
           <h1>My Profile</h1>
           <div className="profile-photo" style={{
-            backgroundImage: `url(https://wallpaperscraft.com/image/cat_face_profile_black_background_66441_602x339.jpg)`
+            backgroundImage: `url(${profilePhotoURL})`
           }} />
-          <p>Venmo green juice iPhone, farm-to-table humblebrag hot chicken neutra pabst organic ethical pour-over. Bespoke enamel pin single-origin coffee organic craft beer, forage salvia food truck synth tilde kitsch mixtape. Live-edge iPhone bicycle rights blue bottle echo park humblebrag. DIY +1 tofu kickstarter, before they sold out vice master cleanse air plant hell of poke fam iPhone celiac lyft pitchfork. Aesthetic farm-to-table ugh church-key twee cred. +1 unicorn poutine blog mustache sustainable, photo booth fashion axe 8-bit health goth kombucha trust fund literally skateboard pok pok. Keffiyeh forage lo-fi kombucha jianbing man bun meggings, neutra biodiesel pour-over mlkshk single-origin coffee.</p>
+          <p>{about}</p>
         </div>
     </section>
     );
