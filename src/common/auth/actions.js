@@ -6,6 +6,7 @@ import Firebase from 'firebase';
 export const AUTH_LOGIN = 'AUTH_LOGIN';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const AUTH_UPDATE_USER = 'AUTH_UPDATE_USER';
+export const AUTH_ENLIST = 'AUTH_ENLIST';
 
 
 // import Ajax from '../utils/ajax';
@@ -27,8 +28,8 @@ function firebaseLogin({email, password}) {
           callback(data)
         }).catch((error) => {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
       });
     }
   };
@@ -59,6 +60,26 @@ function firebaseUpdateUser(info) {
   };
 }
 
+function firebaseEnlistUser(info) {
+  return {
+    then: function(callback) {
+      const {
+        email,
+        password
+      } = info;
+      Firebase.auth().createUserWithEmailAndPassword(
+        email,
+        password
+      ).then(function() {
+        // Update successful.
+        callback(true);
+      }, function(error) {
+        // An error happened.
+      });
+    }
+  }
+}
+
 export function auth_update_user(info) {
   return (dispatch) => {
     return firebaseUpdateUser({
@@ -81,7 +102,16 @@ export function auth_login(info) {
      return firebaseLogin({
        email: info.username,
        password: info.password
-     }).then(data => dispatch(auth_login_complete(data)))
+     }).then(data => dispatch(auth_login_complete(data)));
+  }
+}
+
+export function auth_enlist(info) {
+  return (dispatch) => {
+    return firebaseEnlistUser({
+      email: info.email,
+      password: info.password
+    }).then(data => dispatch(auth_enlist_complete(data, info)));
   }
 }
 
@@ -90,6 +120,24 @@ export function auth_login_complete(info) {
     type: 'AUTH_LOGIN',
     payload: {
       user: info
+    }
+  }
+}
+
+
+export function auth_enlist_update_name(data, info) {
+  return (dispatch) => {
+    return firebaseUpdateUser({
+      displayName: info.firstName
+    }).then(data => dispatch(auth_enlist_complete(data)));
+  }
+}
+
+export function auth_enlist_complete(data) {
+  return {
+    type: 'AUTH_ENLIST',
+    payload: {
+      user: data
     }
   }
 }

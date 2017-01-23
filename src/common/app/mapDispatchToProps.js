@@ -8,12 +8,16 @@ import * as _templateActions from '../_template/actions';
 import * as homeActions from '../home/actions';
 import * as todoActions from '../todo/actions';
 import * as authActions from '../auth/actions';
+import * as userActions from '../user/actions';
+import * as appActions from './appActions';
 
 const actions = [
   _templateActions,
+  appActions,
   homeActions,
   todoActions,
-  authActions
+  authActions,
+  userActions
 ];
 
 export default function mapDispatchToProps(dispatch) {
