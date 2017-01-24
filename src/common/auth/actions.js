@@ -22,7 +22,7 @@ export const AUTH_ENLIST = 'AUTH_ENLIST';
 /* --- Actions --- */
 function firebaseLogin({email, password}) {
   return {
-      then: function(callback) {
+      then: (callback) => {
         Firebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
           console.log('suyccess data', data)
           callback(data)
@@ -36,9 +36,9 @@ function firebaseLogin({email, password}) {
 };
 
 function firebaseLogout() {
-  Firebase.auth().signOut().then(function() {
+  Firebase.auth().signOut().then(() => {
     // Sign-out successful.
-  }, function(error) {
+  }, (error) => {
     // An error happened.
     callback('error');
   });
@@ -46,14 +46,14 @@ function firebaseLogout() {
 
 function firebaseUpdateUser(info) {
   return {
-      then: function(callback) {
+      then: (callback) => {
         const user = Firebase.auth().currentUser;
         user.updateProfile({
           displayName: info.displayName,
-        }).then(function() {
+        }).then(() => {
           // Update successful.
           callback({name: info.displayName});
-        }, function(error) {
+        }, (error) => {
           // An error happened.
         });
     }
@@ -62,7 +62,7 @@ function firebaseUpdateUser(info) {
 
 function firebaseEnlistUser(info) {
   return {
-    then: function(callback) {
+    then: (callback) => {
       const {
         email,
         password
@@ -70,10 +70,10 @@ function firebaseEnlistUser(info) {
       Firebase.auth().createUserWithEmailAndPassword(
         email,
         password
-      ).then(function() {
+      ).then(() => {
         // Update successful.
         callback(true);
-      }, function(error) {
+      }, (error) => {
         // An error happened.
       });
     }
