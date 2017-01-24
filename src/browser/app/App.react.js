@@ -27,6 +27,7 @@ class App extends Component {
       if (user) {
         // User is signed in.
         actions.auth_login_complete(user);
+        actions.user_get_info();
 
         console.log('logged in');
       } else {

@@ -24,12 +24,12 @@ const firebaseUpdateUser = (info) => {
 
 const firebaseUpdateUserProfilePhoto = (info, data) => {
   return {
-      then: function(callback) {
+      then: (callback) => {
         const user = Firebase.auth().currentUser;
         console.log('info', info.profilePhoto);
         Firebase.database().ref(`/users/${user.uid}`).update({
           profilePhoto: info.profilePhoto
-        }).then(function() {
+        }).then(() => {
           // Update successful.
           callback({profilePhoto: info.profilePhoto});
         }, function(error) {

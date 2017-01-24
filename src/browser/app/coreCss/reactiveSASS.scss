@@ -1,0 +1,250 @@
+// @import './coreCss/reset';
+
+/*
+
+------------ Q.Reactive SCSS Framework --------------
+
+Author : Rory Kermack
+Version : 3.0
+Date : 26-Jan-2015
+Author URI : kermack.com
+Compatability : ie8+, all other major browsers
+
+------------------------------------------------
+
+*/
+
+/* Settings */
+$row-width : 100%;
+$gutter-width : 0%;
+$column-paddng : 0%;
+$column-count : 12;
+$base-font-size: '16px';
+
+
+/* Reset */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {
+margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+i,.italic,em {font-style:italic;}
+b,.bold,strong {font-weight: bold;}
+.uline {text-decoration: underline;}
+.ucase {text-transform: uppercase;}
+.caps {text-transform: capitalize;}
+
+.text-center {text-align: center;}
+
+.relative {
+    position: relative;
+}
+
+/* Setup */
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,body {
+    min-height: 100%;
+    height: 100%;
+    font-size: $base-font-size;
+    margin:0;
+    padding:0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Row & Columns*/
+.row {
+    width:100%;
+    max-width: $row-width;
+    overflow: hidden;
+    height: auto;
+    margin:0 auto;
+    zoom:1;
+
+    &:after,&:before {
+        display: table;
+        clear: both;
+    }
+
+    &:after {
+        content:"";
+    }
+
+    &.of-show {
+        overflow: visible;
+    }
+
+    &.full-width {
+        max-width:100%;
+    }
+
+}
+
+$column-base-width : 100% / $column-count;
+$column-base-gutter : $gutter-width / 2;
+$column-base-padding : ($column-paddng / 2) + $column-base-gutter;
+
+
+.col {
+   float:left;
+   display: block;
+   margin:0;
+   padding:0 $column-base-padding 0 $column-base-padding;
+//   min-height: 10px;
+
+   &:first-child {
+    margin-left:0;
+   }
+
+   &.last {
+     float:right;
+   }
+
+   &.center {
+     margin-left: auto;
+     margin-right: auto;
+     float:none;
+   }
+
+   &.nopad {
+    padding:0;
+   }
+
+   &.right {
+    float:right;
+   }
+
+
+   @for $i from 1 through $column-count {
+       &.w#{$i} {
+            @if $i == $column-count {
+                width: 100%;
+            }
+            @else {
+                width : $column-base-width * $i;
+            }
+
+       }
+
+       &.osb#{$i} {
+        @if $i == $column-count {
+                margin-left: 100%;
+            }
+            @else {
+                margin-left : $column-base-width * $i;
+            }
+       }
+   }
+
+}
+
+
+.h100 {
+    min-height: 100%;
+    height: 100%;
+}
+
+.vh100 {
+  height: 100vh;
+}
+
+
+/* Clear Grenade (fix) */
+.clear-grenade {
+    zoom: 1;
+
+    &:before,&:after {
+        display: table;
+        clear: both;
+    }
+
+    &:after {
+        content: "";
+    }
+}
+
+/* Utility classes */
+.hidden {
+    opacity: 0;
+}
+
+.block {
+    display: block;
+}
+
+.noselect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+
+/* Equalizer */
+.equalizer {
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-justify-content:space-between;
+  justify-content: space-between;
+  -webkit-box-align: space-between;
+  -moz-box-align: space-between;
+  -ms-flex-align: space-between;
+  -webkit-align-items:space-between;
+   justify-content: space-between;
+
+  &.row {
+    &:after {
+        content: none;
+    }
+  }
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    /* tablets and desktop */
+    .col {
+        min-width:100%;
+        margin-left:0;
+        display: block;
+        float:none;
+
+        @for $i from 1 through $column-count {
+            &.osb#{$i} {
+                margin-left : 0 !important;
+            }
+        }
+
+       }
+    }
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
