@@ -6,8 +6,7 @@ Get a react/redux playground/project up and running in < 5 mins. Quickly create 
 
 Setup:
   1. `$ git clone ...`
-  2. `npm install`
-  3. `npm run jumpstart`
+  2. `npm run jumpstart`
 
 **tested with node -v 6 & 7*
 
@@ -25,6 +24,7 @@ Setup:
     - Hot Module Replacement
     - Eslint (air bnb standard)
     - SASS
+    - Mocha
 
 ## Running in: Dev
 
