@@ -1,0 +1,110 @@
+@import './reactiveSASS';
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 50px 15px 0 15px;
+}
+
+input {
+  height: 40px;
+  border:3px solid #cccccc;
+  border-radius: 3px;
+  font-size: 16px;
+  padding:5px;
+  display: inline-block;
+  &:focus {outline:0;}
+}
+
+button {
+  border: 3px solid darken(#3498db, 15%);
+  background: #3498db;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  padding:8px 15px;
+  cursor: pointer;
+  transition: all .25s ease;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+  &:focus {outline:0;}
+
+
+  &.red {
+    background:#e74c3c;
+    border: 3px solid darken(#e74c3c, 15%);
+    &:hover {
+      background: darken(#e74c3c, 15%);
+    }
+  }
+
+
+  &:hover {
+    background: darken(#3498db, 15%);
+  }
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+h2 {
+  font-weight: bold;
+  color:#4aa3df;
+  font-size: 30px;
+}
+
+h1,h2,h3,p {
+  padding: 10px 0px;
+  letter-spacing: 0.05em;
+  font-family: sans-serif;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.error {
+  border: 3px solid #e74c3c;
+}
+
+a {
+  letter-spacing: 0.05em;
+  font-family: sans-serif;
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  transition: all .25s ease;
+
+  &.grey {
+    color:#cccccc;
+  }
+
+  &:hover {
+    color:#4aa3df;
+  }
+}
+
+.page {
+  padding-top:50px;
+}
+
+/* UI Helper Classes */
+.block {
+  display: block;
+  margin: 15px 0;
+
+  &.no-margin {
+    margin: 0;
+  }
+}
