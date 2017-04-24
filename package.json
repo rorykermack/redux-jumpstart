@@ -2,7 +2,7 @@
   "name": "redux-jumpstart",
   "version": "0.0.2",
   "private": false,
-  "license": "MIT",
+  "license": "WTFPL",
   "main": "index.js",
   "scripts": {
     "jumpstart": "npm i && npm start",
